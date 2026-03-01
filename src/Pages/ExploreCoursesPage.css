@@ -1,0 +1,310 @@
+/* ===============================
+   PROFESSIONAL COURSE EXPLORER UI
+   (Updated — Sidebar + Search + Layout)
+================================*/
+
+/* Basic resets & container */
+* { box-sizing: border-box; }
+body, html { margin: 0; padding: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #111827; }
+
+/* Outer layout */
+.course-explorer {
+  background: #f5f7fa;
+  padding: 120px 16px 40px; /* increased top padding */
+  min-height: calc(100vh - 72px);
+}
+
+/* central container (optional, keep consistent with your project) */
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* header */
+.ce-header { 
+  text-align: center; 
+  margin-bottom: 20px;
+  padding: 0;
+}
+.ce-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  padding: 0;
+}
+.ce-subtitle {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* main wrapper */
+.ce-main { width: 100%; }
+
+/* ===============================
+   SIDEBAR FILTERS
+================================*/
+.ce-sidebar {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+  height: fit-content;
+  position: sticky;
+  top: 86px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.ce-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.ce-sidebar h2 {
+  font-size: 18px;
+  margin: 0;
+  color: #0f172a;
+}
+
+.ce-clear-filters {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Accordion */
+.ce-accordion { margin-bottom: 12px; }
+.ce-accordion-btn {
+  width: 100%;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px;
+  background: #fbfdff;
+  border-radius: 8px;
+  border: 1px solid #eef2ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.ce-accordion-btn:hover { transform: translateY(-1px); transition: transform 0.15s ease; }
+.ce-accordion-caret { color: #6b7280; font-size: 12px; }
+
+.ce-accordion-options {
+  padding: 10px 12px;
+  margin-top: 8px;
+  background: #ffffff;
+  border-radius: 8px;
+  border-left: 3px solid rgba(99,102,241,0.12);
+}
+
+.ce-empty-option { color: #6b7280; font-size: 13px; }
+
+/* Option row */
+.ce-option-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 14px; color: #374151; cursor: pointer; }
+.ce-option-row input { width: 16px; height: 16px; }
+.ce-option-label { user-select: none; }
+
+/* ===============================
+   SEARCH BAR & TOP FILTERS
+================================*/
+.ce-searchbar {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+  margin-bottom: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+.ce-search-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ce-search-left {
+  display: flex;
+  gap: 10px;
+  flex: 1 1 480px;
+  align-items: center;
+}
+
+.ce-search-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e6e9ef;
+  font-size: 15px;
+  background: #f8fafc;
+  outline: none;
+}
+.ce-search-input:focus {
+  box-shadow: 0 0 0 6px rgba(99,102,241,0.06);
+  border-color: #6366f1;
+  background: #fff;
+}
+
+.ce-btn-orange {
+  padding: 10px 16px;
+  background: #eab308;
+  color: #111827;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ce-btn-orange:hover { filter: brightness(0.96); }
+
+/* right side - stats + sort */
+.ce-search-right { display:flex; align-items:center; gap:12px; }
+
+.ce-stats { display:flex; gap:12px; align-items:center; }
+.ce-stat { text-align:center; padding:6px 10px; }
+.ce-stat-number { font-weight:700; font-size:16px; color:#0f172a; }
+.ce-stat-label { font-size:12px; color:#6b7280; }
+
+/* sort select */
+.ce-sort { display:flex; align-items:center; gap:8px; }
+.ce-sort-label { font-size:13px; color:#6b7280; margin-right:4px; }
+.ce-sort-select {
+  padding: 8px 10px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+  background:#fff;
+}
+
+/* top filters row */
+.ce-top-filters {
+  margin-top: 14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.ce-top-filter-select {
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+  min-width:180px;
+  background:#fff;
+}
+
+/* ===============================
+   SPECIALIZATIONS
+================================*/
+.ce-specializations {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+  margin-bottom: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+.ce-spec-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.ce-spec-sub { color: #6b7280; font-size:13px; margin-left:8px; }
+.ce-spec-list { display:flex; gap:8px; flex-wrap:wrap; }
+.ce-spec-tag {
+  border-radius:999px;
+  padding:8px 12px;
+  background:#f3f4f6;
+  color:#374151;
+  border: none;
+  cursor:pointer;
+  font-size:13px;
+}
+.ce-spec-tag.active { background: #6366f1; color: #fff; box-shadow: 0 6px 18px rgba(99,102,241,0.12); }
+
+/* ===============================
+   COURSE LIST / CARD AREA
+   (Card styles left mostly as-is but included small spacing helpers)
+================================*/
+.ce-list { margin-top: 8px; }
+
+.ce-loading, .ce-empty {
+  padding: 30px;
+  text-align:center;
+  color: #6b7280;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+}
+
+/* Use your existing card styling, but add spacing wrapper */
+.ce-course-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 14px rgba(2,6,23,0.03);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.ce-course-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(2,6,23,0.08); }
+
+.ce-course-title { font-size:18px; font-weight:700; margin:0 0 8px 0; color: #0b1220; }
+.ce-tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+.ce-tag {
+  background:#f3f4f6;
+  padding:6px 8px;
+  border-radius:8px;
+  font-size:13px;
+  color:#374151;
+}
+.ce-eligibility { color:#6b7280; margin:6px 0; font-size:14px; }
+.ce-description { color:#374151; margin:6px 0 10px 0; font-size:14px; line-height:1.45; }
+.ce-spec { display:inline-block; background:#fff5f0; color:#c2410c; padding:6px 8px; border-radius:6px; margin-right:6px; font-size:13px; }
+
+/* footer actions inside card */
+.ce-card-footer {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px;
+}
+.ce-save-btn { background:transparent; border:none; cursor:pointer; padding:6px; }
+.ce-save-icon { width:22px; height:22px; }
+
+.ce-footer-actions { display:flex; gap:8px; align-items:center; }
+.ce-link { background:transparent; border:none; color:#111827; cursor:pointer; font-weight:600; padding:8px 10px; border-radius:8px; }
+.ce-btn-apply { background:#eab308; color:#111827; padding:8px 12px; border-radius:10px; border:none; cursor:pointer; font-weight:600; }
+
+/* top institutes small layout (kept simple) */
+.ce-top-institutes img { object-fit:cover; }
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .ce-search-right { display:none; } /* collapse stats on small screens */
+  .ce-sidebar { position: relative; top: auto; }
+  .ce-search-left { flex-direction: column; align-items: stretch; }
+  .ce-btn-orange { width: 100%; }
+}
+
+/* Fix header hidden behind navbar */
+.course-explorer {
+  padding-top: 120px !important;
+}
+
+.ce-header {
+  margin-bottom: 20px;
+  padding: 0;
+  text-align: center;
+}
+
+.ce-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  padding: 0;
+}
+
+.ce-subtitle {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 14px;
+}

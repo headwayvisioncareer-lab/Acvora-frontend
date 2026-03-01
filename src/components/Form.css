@@ -1,0 +1,215 @@
+/* Root section */
+.cf-section {
+  padding: 1.5rem;
+  background: #f3f4f6; /* gray-50 */
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111827;
+}
+
+/* Container card */
+.cf-container {
+  width: 100%;
+  max-width: 64rem; /* same as max-w-4xl */
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(17,24,39,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Left (art) and Right (form) */
+.cf-left,
+.cf-right {
+  box-sizing: border-box;
+  padding: 1.5rem;
+}
+
+.cf-left {
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%); /* yellow-50 to white */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Art layout */
+.cf-art {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.cf-image {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.cf-art-text h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.cf-art-text p {
+  margin: 0;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280; /* gray-600 */
+}
+
+/* Form column */
+.cf-right {
+  padding: 1.25rem;
+}
+
+/* Form structure */
+.cf-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Field */
+.cf-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.cf-label {
+  font-size: 0.6875rem; /* text-xs */
+  color: #374151; /* gray-700 */
+  margin-bottom: 0.35rem;
+}
+
+.cf-input,
+.cf-select,
+.cf-country-select {
+  border: 1px solid #e5e7eb; /* gray-200 */
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+/* Focus */
+.cf-input:focus,
+.cf-select:focus,
+.cf-country-select:focus {
+  box-shadow: 0 0 0 4px rgba(245,158,11,0.12); /* yellow ring */
+  border-color: #f59e0b;
+}
+
+/* Row layout (two columns) */
+.cf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+/* Country-specific small box */
+.cf-country-field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make the country select narrower */
+.cf-country-select {
+  width: 7rem; /* corresponds to w-28 */
+  height: 2rem; /* h-8 */
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem; /* text-xs */
+  display: inline-block;
+}
+
+/* Submit */
+.cf-submit {
+  margin-top: 0.25rem;
+  width: 100%;
+  background: #111827; /* gray-800 */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.cf-submit:hover {
+  background: #f59e0b; /* yellow-500 */
+  color: #111827;
+}
+
+/* Toasts */
+.cf-toast {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 0.875rem;
+  box-shadow: 0 6px 18px rgba(17,24,39,0.12);
+}
+
+.cf-toast-success {
+  background: #10b981; /* green-500 */
+}
+
+.cf-toast-error {
+  background: #ef4444; /* red-500 */
+}
+
+/* Responsive: at medium screens and up, place left & right side-by-side */
+@media (min-width: 768px) {
+  .cf-container {
+    flex-direction: row;
+  }
+
+  .cf-left,
+  .cf-right {
+    width: 50%;
+    padding: 1.5rem;
+  }
+
+  .cf-art {
+    justify-content: flex-start;
+  }
+
+  .cf-art-text h3 {
+    font-size: 1.0625rem;
+  }
+
+  .cf-image {
+    height: 18rem;
+  }
+}
+
+/* If you want the country box even smaller on very small screens */
+@media (max-width: 420px) {
+  .cf-country-select {
+    width: 5.25rem;
+  }
+
+  .cf-row {
+    grid-template-columns: 1fr;
+  }
+}

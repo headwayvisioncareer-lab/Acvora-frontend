@@ -1,0 +1,1 @@
+export const host = "https://acvora-07fo.onrender.com"
